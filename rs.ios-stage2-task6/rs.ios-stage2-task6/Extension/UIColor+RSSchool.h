@@ -6,8 +6,22 @@
 //  Copyright © 2020 Pavel N. All rights reserved.
 //
 
-#ifndef UIColor_RSSchool_h
-#define UIColor_RSSchool_h
+#import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-#endif /* UIColor_RSSchool_h */
+@interface UIColor (RSSchool)
+
++(UIColor *)rsschoolBlackColor;
++(UIColor *)rsschoolWhiteColor;
++(UIColor *)rsschoolRedColor;
++(UIColor *)rsschoolBlueColor;
++(UIColor *)rsschoolGreenColor;
++(UIColor *)rsschoolYellowColor;
++(UIColor *)rsschoolGrayColor;
++(UIColor *)rsschoolYellowHighlightedColor;
+
++ (UIColor *)colorWithHexString:(NSString *) hexString;
+@end
+
+NS_ASSUME_NONNULL_END

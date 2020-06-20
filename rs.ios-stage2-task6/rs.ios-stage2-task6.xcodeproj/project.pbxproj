@@ -12,6 +12,11 @@
 		F374E430249C261E0071790A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374E42E249C261E0071790A /* LaunchScreen.storyboard */; };
 		F374E433249C261E0071790A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F374E432249C261E0071790A /* main.m */; };
 		F3919AA9249CCAEF00CBEEA7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3919AA8249CCAEF00CBEEA7 /* RootViewController.m */; };
+		F39E5BE7249CD28900CB854A /* UIColor+RSSchool.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E5BE6249CD28900CB854A /* UIColor+RSSchool.m */; };
+		F39E5BED249D12E900CB854A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E5BEC249D12E900CB854A /* InfoViewController.m */; };
+		F39E5BF1249D631800CB854A /* PhotoKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E5BF0249D631800CB854A /* PhotoKitHelper.m */; };
+		F39E5BF7249DF7ED00CB854A /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E5BF5249DF7ED00CB854A /* InfoTableViewCell.m */; };
+		F39E5BF8249DF7ED00CB854A /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F39E5BF6249DF7ED00CB854A /* InfoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +29,15 @@
 		F374E432249C261E0071790A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3919AA7249CCAEF00CBEEA7 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F3919AA8249CCAEF00CBEEA7 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		F3919AAB249CD1CC00CBEEA7 /* UIColor+RSSchool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RSSchool.h"; sourceTree = "<group>"; };
+		F39E5BE5249CD28900CB854A /* UIColor+RSSchool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RSSchool.h"; sourceTree = "<group>"; };
+		F39E5BE6249CD28900CB854A /* UIColor+RSSchool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RSSchool.m"; sourceTree = "<group>"; };
+		F39E5BEB249D12E900CB854A /* InfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		F39E5BEC249D12E900CB854A /* InfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		F39E5BEF249D631800CB854A /* PhotoKitHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoKitHelper.h; sourceTree = "<group>"; };
+		F39E5BF0249D631800CB854A /* PhotoKitHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoKitHelper.m; sourceTree = "<group>"; };
+		F39E5BF4249DF7ED00CB854A /* InfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
+		F39E5BF5249DF7ED00CB854A /* InfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
+		F39E5BF6249DF7ED00CB854A /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +70,8 @@
 		F374E41F249C26170071790A /* rs.ios-stage2-task6 */ = {
 			isa = PBXGroup;
 			children = (
+				F39E5BF2249DF7B500CB854A /* Cells */,
+				F39E5BEE249D62C800CB854A /* Helpers */,
 				F3919AAA249CD0AE00CBEEA7 /* Extension */,
 				F3919AA6249CCABA00CBEEA7 /* ViewControllers */,
 				F374E420249C26170071790A /* AppDelegate.h */,
@@ -74,6 +89,8 @@
 			children = (
 				F3919AA7249CCAEF00CBEEA7 /* RootViewController.h */,
 				F3919AA8249CCAEF00CBEEA7 /* RootViewController.m */,
+				F39E5BEB249D12E900CB854A /* InfoViewController.h */,
+				F39E5BEC249D12E900CB854A /* InfoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -81,9 +98,37 @@
 		F3919AAA249CD0AE00CBEEA7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F3919AAB249CD1CC00CBEEA7 /* UIColor+RSSchool.h */,
+				F39E5BE5249CD28900CB854A /* UIColor+RSSchool.h */,
+				F39E5BE6249CD28900CB854A /* UIColor+RSSchool.m */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F39E5BEE249D62C800CB854A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F39E5BEF249D631800CB854A /* PhotoKitHelper.h */,
+				F39E5BF0249D631800CB854A /* PhotoKitHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F39E5BF2249DF7B500CB854A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F39E5BF3249DF7C500CB854A /* InfoTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F39E5BF3249DF7C500CB854A /* InfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F39E5BF4249DF7ED00CB854A /* InfoTableViewCell.h */,
+				F39E5BF5249DF7ED00CB854A /* InfoTableViewCell.m */,
+				F39E5BF6249DF7ED00CB854A /* InfoTableViewCell.xib */,
+			);
+			path = InfoTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F374E430249C261E0071790A /* LaunchScreen.storyboard in Resources */,
+				F39E5BF8249DF7ED00CB854A /* InfoTableViewCell.xib in Resources */,
 				F374E42D249C261E0071790A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,8 +202,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F374E422249C26170071790A /* AppDelegate.m in Sources */,
+				F39E5BF1249D631800CB854A /* PhotoKitHelper.m in Sources */,
 				F374E433249C261E0071790A /* main.m in Sources */,
+				F39E5BE7249CD28900CB854A /* UIColor+RSSchool.m in Sources */,
+				F39E5BED249D12E900CB854A /* InfoViewController.m in Sources */,
 				F3919AA9249CCAEF00CBEEA7 /* RootViewController.m in Sources */,
+				F39E5BF7249DF7ED00CB854A /* InfoTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
