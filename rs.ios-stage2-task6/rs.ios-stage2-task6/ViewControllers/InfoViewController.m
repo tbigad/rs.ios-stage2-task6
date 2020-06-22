@@ -11,6 +11,7 @@
 #import "UIColor+RSSchool.h"
 #import "InfoTableViewCell.h"
 #import "HeaderView.h"
+#import "DitailedViewController.h"
 
 @interface InfoViewController () <UITableViewDelegate, UITableViewDataSource, PhotoKitHelperDelegate>
 @property (nonatomic,strong)UITableView* tableView;
@@ -111,14 +112,30 @@
     return count;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DitailedViewController* ditailedVC = [[DitailedViewController alloc]init];
+    [ditailedVC setModalPresentationStyle:UIModalPresentationFullScreen];
+    PHAsset* item = [self.galleryHelper itemAt:indexPath.item];
+    ditailedVC.representedAssetIdentifier = item.localIdentifier;
+    __weak typeof(ditailedVC) weakDitailedVC = ditailedVC;
+    __weak typeof(item) weakItem = item;
+    __weak typeof(self) weakSelf = self;
+    [self.galleryHelper requestImage:item targetSize:CGSizeMake(item.pixelWidth, item.pixelHeight) contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
+        if ([weakDitailedVC.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
+            [weakDitailedVC setImageToShow:result];
+            [weakSelf presentViewController:weakDitailedVC animated:YES completion:nil];
+        }
+    }];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 - (NSString*)formatDuration:(NSTimeInterval)duration {
-    int minutes = (int)duration / 60;
-    int seconds = (int)duration % 60;
-
-    NSString *time = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
-    return time;
+    NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
+    formatter.unitsStyle = NSDateComponentsFormatterUnitsStylePositional;
+    formatter.allowedUnits = (NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitHour);
+    formatter.zeroFormattingBehavior = NSDateComponentsFormatterZeroFormattingBehaviorPad;
+    NSString* outputString = [formatter stringFromTimeInterval:duration];
+    return outputString;
 }
 
 - (void)libraryDidChage:(nonnull PHFetchResultChangeDetails *)ditails {

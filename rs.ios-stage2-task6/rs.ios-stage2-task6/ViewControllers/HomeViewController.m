@@ -33,6 +33,7 @@
     [self.triangleView animate];
     [self.cubeView animate];
     [self fillInfoLabels];
+    [self setTitle:@"RSSchool Task 6"];
 }
 
 - (IBAction)openCV:(RoundedButton *)sender {

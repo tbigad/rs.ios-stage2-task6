@@ -43,7 +43,9 @@
     [self addChildViewController: homeNav];
     UITabBarItem* homeTabItem = [[UITabBarItem alloc]initWithTitle:@"" image:[UIImage imageNamed:@"home_unselected"] selectedImage:[UIImage imageNamed:@"home_selected"]];
     homeNav.tabBarItem = homeTabItem;
-    
+    homeNav.navigationBar.backgroundColor = [UIColor rsschoolYellowColor];
+    [homeNav.navigationBar setTitleTextAttributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:18.0f weight:UIFontWeightSemibold],
+                                                     NSForegroundColorAttributeName: [UIColor rsschoolBlackColor] }];
     [[self tabBar] setTintColor:[UIColor blackColor]];
 }
 
