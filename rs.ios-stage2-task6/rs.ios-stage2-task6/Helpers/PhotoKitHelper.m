@@ -66,4 +66,17 @@
     return ((PHAssetResource*)resources[0]).originalFilename;
 }
 
+- (NSString*) stringFromMediaType:(PHAssetMediaType)type {
+    switch (type) {
+        case PHAssetMediaTypeUnknown:
+            return @"Unknown";
+        case PHAssetMediaTypeImage:
+            return @"Image";
+        case PHAssetMediaTypeVideo:
+            return @"Video";
+        case PHAssetMediaTypeAudio:
+            return @"Audio";
+    }
+}
+
 @end

@@ -12,10 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DitailedViewController : UIViewController
 @property (nonatomic,copy)NSString* representedAssetIdentifier;
-@property (nonatomic, strong) UIImage* imageToShow;
+@property (nonatomic, strong) UIImage* originalImage;
 @property (nonatomic, copy) NSDate* creationDate;
 @property (nonatomic, copy) NSDate* modificationDate;
 @property (nonatomic, copy) NSString* typeOfContent;
+@property (nonatomic, copy) NSString* imageName;
 
 @end
 

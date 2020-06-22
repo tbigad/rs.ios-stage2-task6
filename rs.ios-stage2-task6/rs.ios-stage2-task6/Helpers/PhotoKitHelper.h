@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger,PhotoKitRequestType) {
 -(PHAsset*) itemAt:(NSUInteger)index;
 -(void) requestImage:(PHAsset*)asset targetSize:(CGSize)size contentMode:(PHImageContentMode)mode sync:(BOOL)synchronous resultHandler:(void (^)(UIImage *_Nullable result))handler;
 -(NSString *) fileNameForAssets:(PHAsset*)asset;
+- (NSString*) stringFromMediaType:(PHAssetMediaType)type;
 @end
 
 NS_ASSUME_NONNULL_END

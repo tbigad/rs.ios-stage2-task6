@@ -20,6 +20,7 @@
 		F30C980924A0A40B00541C27 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980824A0A40B00541C27 /* CircleView.m */; };
 		F30C980D24A0BD3C00541C27 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980B24A0BD3C00541C27 /* StartViewController.m */; };
 		F30C980E24A0BD3C00541C27 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C980C24A0BD3C00541C27 /* StartViewController.xib */; };
+		F35E870824A124110077B97E /* UIImage+SizeToFit.m in Sources */ = {isa = PBXBuildFile; fileRef = F35E870724A124110077B97E /* UIImage+SizeToFit.m */; };
 		F374E422249C26170071790A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F374E421249C26170071790A /* AppDelegate.m */; };
 		F374E42D249C261E0071790A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F374E42C249C261E0071790A /* Assets.xcassets */; };
 		F374E430249C261E0071790A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374E42E249C261E0071790A /* LaunchScreen.storyboard */; };
@@ -54,6 +55,8 @@
 		F30C980A24A0BD3C00541C27 /* StartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		F30C980B24A0BD3C00541C27 /* StartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		F30C980C24A0BD3C00541C27 /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
+		F35E870624A124110077B97E /* UIImage+SizeToFit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+SizeToFit.h"; sourceTree = "<group>"; };
+		F35E870724A124110077B97E /* UIImage+SizeToFit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SizeToFit.m"; sourceTree = "<group>"; };
 		F374E41D249C26170071790A /* rs.ios-stage2-task6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rs.ios-stage2-task6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F374E420249C26170071790A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F374E421249C26170071790A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 			children = (
 				F39E5BE5249CD28900CB854A /* UIColor+RSSchool.h */,
 				F39E5BE6249CD28900CB854A /* UIColor+RSSchool.m */,
+				F35E870624A124110077B97E /* UIImage+SizeToFit.h */,
+				F35E870724A124110077B97E /* UIImage+SizeToFit.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				F39E5BED249D12E900CB854A /* InfoViewController.m in Sources */,
 				F30C980324A0132900541C27 /* RoundedButton.m in Sources */,
 				F3919AA9249CCAEF00CBEEA7 /* RootViewController.m in Sources */,
+				F35E870824A124110077B97E /* UIImage+SizeToFit.m in Sources */,
 				F39E5BF7249DF7ED00CB854A /* InfoTableViewCell.m in Sources */,
 				F30C980D24A0BD3C00541C27 /* StartViewController.m in Sources */,
 				F30C97F0249F7AAE00541C27 /* GalleryViewController.m in Sources */,

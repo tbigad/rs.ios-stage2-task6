@@ -117,12 +117,16 @@
     [ditailedVC setModalPresentationStyle:UIModalPresentationFullScreen];
     PHAsset* item = [self.galleryHelper itemAt:indexPath.item];
     ditailedVC.representedAssetIdentifier = item.localIdentifier;
+    ditailedVC.creationDate = item.creationDate;
+    ditailedVC.modificationDate = item.modificationDate;
+    ditailedVC.typeOfContent = [self.galleryHelper stringFromMediaType:item.mediaType];
+    ditailedVC.imageName = [self.galleryHelper fileNameForAssets:item];
     __weak typeof(ditailedVC) weakDitailedVC = ditailedVC;
     __weak typeof(item) weakItem = item;
     __weak typeof(self) weakSelf = self;
     [self.galleryHelper requestImage:item targetSize:CGSizeMake(item.pixelWidth, item.pixelHeight) contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
         if ([weakDitailedVC.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
-            [weakDitailedVC setImageToShow:result];
+            [weakDitailedVC setOriginalImage:result];
             [weakSelf presentViewController:weakDitailedVC animated:YES completion:nil];
         }
     }];
