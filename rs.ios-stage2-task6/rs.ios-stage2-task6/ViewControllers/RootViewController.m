@@ -10,53 +10,34 @@
 #import "RootViewController.h"
 #import "UIColor+RSSchool.h"
 #import "InfoViewController.h"
-#import <Photos/Photos.h>
+#import "GalleryViewController.h"
+#import "HomeViewController.h"
 
 @interface RootViewController ()
 @property (nonatomic,strong)InfoViewController* infoTab;
-@property (nonatomic,strong)UIViewController* galleryTab;
-@property (nonatomic,strong)UIViewController* homeTab;
+@property (nonatomic,strong)GalleryViewController* galleryTab;
+@property (nonatomic,strong)HomeViewController* homeTab;
 @end
 
 @implementation RootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PHAuthorizationStatus code = [PHPhotoLibrary authorizationStatus];
-    
-    switch (code) {
-        case PHAuthorizationStatusNotDetermined:
-            [self requestAuthorization];
-            break;
-        case PHAuthorizationStatusRestricted:
-            //TODO
-            break;
-        case PHAuthorizationStatusDenied:
-            //TODO
-            break;
-        case PHAuthorizationStatusAuthorized:
-            [self setupTabs];
-            break;
-    }
-    
+    [self setupTabs];
 }
 
 - (void) setupTabs {
     self.infoTab = [[InfoViewController alloc] init];
-    UINavigationController* infoNav = [[UINavigationController alloc] initWithRootViewController:self.infoTab];
-    [self addChildViewController: infoNav];
     UITabBarItem* infoTabItem = [[UITabBarItem alloc]initWithTitle:@"" image:[UIImage imageNamed:@"info_unselected"] selectedImage:[UIImage imageNamed:@"info_selected"]];
-    infoNav.tabBarItem = infoTabItem;
-    infoNav.navigationBar.backgroundColor = [UIColor rsschoolYellowColor];
-    infoNav.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"System-Semibold" size:18.0],NSFontAttributeName,nil];
+    self.infoTab.tabBarItem = infoTabItem;
+    [self addChildViewController: self.infoTab];
     
-    self.galleryTab = [[UIViewController alloc] init];
-    UINavigationController* galleryNav = [[UINavigationController alloc] initWithRootViewController:self.galleryTab];
-    [self addChildViewController: galleryNav];
+    self.galleryTab = [[GalleryViewController alloc] init];
     UITabBarItem* galleryTabItem = [[UITabBarItem alloc]initWithTitle:@"" image:[UIImage imageNamed:@"gallery_unselected"] selectedImage:[UIImage imageNamed:@"gallery_selected"]];
-    galleryNav.tabBarItem = galleryTabItem;
+    self.galleryTab.tabBarItem = galleryTabItem;
+    [self addChildViewController: self.galleryTab];
     
-    self.homeTab = [[UIViewController alloc] init];
+    self.homeTab = [[HomeViewController alloc] init];
     UINavigationController* homeNav = [[UINavigationController alloc] initWithRootViewController:self.homeTab];
     [self addChildViewController: homeNav];
     UITabBarItem* homeTabItem = [[UITabBarItem alloc]initWithTitle:@"" image:[UIImage imageNamed:@"home_unselected"] selectedImage:[UIImage imageNamed:@"home_selected"]];
@@ -64,26 +45,6 @@
     
     [[self tabBar] setTintColor:[UIColor blackColor]];
 }
-- (void) requestAuthorization {
-    __weak typeof(self) weakSelf = self;
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        switch (status) {
-            case PHAuthorizationStatusNotDetermined:
-                //TODO
-                break;
-            case PHAuthorizationStatusRestricted:
-                //TODO
-                break;
-            case PHAuthorizationStatusDenied:
-                //TODO
-                break;
-            case PHAuthorizationStatusAuthorized:
-                [weakSelf setupTabs];
-                break;
-            default:
-                break;
-        }
-    }];
-}
+
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "StartViewController.h"
 
 @interface AppDelegate ()
 @end
@@ -16,9 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UITabBarController *main = [RootViewController new];
+    StartViewController *start = [StartViewController new];
+    
+    start.succecsStartTapped = ^{
+        [self.window setRootViewController:[RootViewController new]];
+    };
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window setRootViewController:main];
+    [self.window setRootViewController:start];
     [self.window makeKeyAndVisible];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     return YES;

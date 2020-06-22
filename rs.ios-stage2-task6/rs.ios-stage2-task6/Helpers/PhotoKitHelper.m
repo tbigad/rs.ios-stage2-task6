@@ -15,7 +15,7 @@
 
 @implementation PhotoKitHelper
 
-- (instancetype)init
+- (instancetype)initWithType:(PhotoKitRequestType)type
 {
     self = [super init];
     if (self) {
@@ -23,6 +23,9 @@
         _photoManager = [[PHCachingImageManager alloc]init];
         PHFetchOptions* options = [[PHFetchOptions alloc]init];
         options.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:YES] ];
+        if(type == PhotoKitRequestTypeImage) {
+            options.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
+        }
         _fetchResult = [PHAsset fetchAssetsWithOptions:options];
     }
     return self;
@@ -45,21 +48,17 @@
     return [self.fetchResult objectAtIndex:index];
 }
 
--(void) requestImage:(PHAsset*)asset targetSize:(CGSize)size contentMode:(PHImageContentMode)mode resultHandler:(void (^)(UIImage *_Nullable result))handler {
-    [self.photoManager requestImageForAsset:asset targetSize:size contentMode:mode options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+-(void) requestImage:(PHAsset*)asset targetSize:(CGSize)size contentMode:(PHImageContentMode)mode sync:(BOOL)synchronous resultHandler:(void (^)(UIImage *_Nullable result))handler {
+    PHImageRequestOptions *option = [PHImageRequestOptions new];
+    option.synchronous = synchronous;
+    [self.photoManager requestImageForAsset:asset targetSize:size contentMode:mode options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         handler(result);
     }];
 }
 
--(void) requestFileNameForAssets:(PHAsset*)asset resultHandler:(void (^)(NSString *_Nullable result))handler {
-    [self.photoManager requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-        if ([info objectForKey:@"PHImageFileURLKey"]) {
-            // path looks like this -
-            // file:///var/mobile/Media/DCIM/###APPLE/IMG_####.JPG
-            NSURL *path = [info objectForKey:@"PHImageFileURLKey"];
-            handler([path lastPathComponent]);
-        }
-    }];
+-(NSString *) fileNameForAssets:(PHAsset*)asset {
+    NSArray *resources = [PHAssetResource assetResourcesForAsset:asset];
+    return ((PHAssetResource*)resources[0]).originalFilename;
 }
 
 @end

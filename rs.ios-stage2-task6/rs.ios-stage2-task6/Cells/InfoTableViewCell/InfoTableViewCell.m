@@ -7,6 +7,7 @@
 //
 
 #import "InfoTableViewCell.h"
+#import "UIColor+RSSchool.h"
 
 @interface InfoTableViewCell ()
 
@@ -22,7 +23,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[UIColor rsschoolYellowHighlightedColor]];
+    [self setSelectedBackgroundView:bgColorView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,24 +39,23 @@
     return @"InfoTableViewCell";
 }
 
-- (void)setMediaAsset:(PHAsset *)asset {
-    self.representedAssetIdentifier = asset.localIdentifier;
-
-    switch (asset.mediaType) {
-        case PHAssetMediaTypeUnknown:
-            [self.iconView setImage:[UIImage imageNamed:@"other"]];
+- (void)setCellStyle:(InfoTableViewCellStyle)style {
+    
+    switch (style) {
+        case InfoTableViewCellStyleAudio:
+        [self.iconView setImage:[UIImage imageNamed:@"audio"]];
             break;
-        case PHAssetMediaTypeImage:
-            [self.iconView setImage:[UIImage imageNamed:@"image"]];
-            [self.descriptionLabel setText:[[NSString alloc]initWithFormat:@"%lux%lu",asset.pixelWidth,asset.pixelHeight]];
+        case InfoTableViewCellStyleVideo:
+        [self.iconView setImage:[UIImage imageNamed:@"video"]];
             break;
-        case PHAssetMediaTypeVideo:
-            [self.iconView setImage:[UIImage imageNamed:@"video"]];
+        case InfoTableViewCellStylePhoto:
+        [self.iconView setImage:[UIImage imageNamed:@"image"]];
             break;
-        case PHAssetMediaTypeAudio:
-            [self.iconView setImage:[UIImage imageNamed:@"audio"]];
+        case InfoTableViewCellStyleOther:
+        [self.iconView setImage:[UIImage imageNamed:@"other"]];
             break;
     }
+    
 }
 
 - (void)setImageLabel:(UIImage *)image {
@@ -61,6 +64,10 @@
 
 - (void)setFileName:(NSString *)name {
     [self.titleLabel setText:name];
+}
+
+- (void)setDescriptionText:(NSString *)text {
+    [self.descriptionLabel setText:text];
 }
 
 @end

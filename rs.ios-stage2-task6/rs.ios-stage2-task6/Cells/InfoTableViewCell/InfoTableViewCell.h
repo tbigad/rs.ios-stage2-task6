@@ -7,18 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Photos/PHAsset.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger, InfoTableViewCellStyle) {
+    InfoTableViewCellStyleAudio,
+    InfoTableViewCellStyleVideo,
+    InfoTableViewCellStylePhoto,
+    InfoTableViewCellStyleOther
+};
 
 @interface InfoTableViewCell : UITableViewCell
 
 @property (nonatomic,copy)NSString* representedAssetIdentifier;
 
 +(NSString*)reuseId;
--(void)setMediaAsset:(PHAsset*)asset;
+-(void)setCellStyle:(InfoTableViewCellStyle)style;
 -(void)setFileName:(NSString*)name;
 -(void)setImageLabel:(UIImage*)image;
+-(void)setDescriptionText:(NSString*)text;
 @end
 
 NS_ASSUME_NONNULL_END

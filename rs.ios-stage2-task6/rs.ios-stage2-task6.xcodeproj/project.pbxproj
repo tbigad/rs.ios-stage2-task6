@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30C97EA249F583000541C27 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C97E9249F583000541C27 /* HeaderView.xib */; };
+		F30C97ED249F587700541C27 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C97EC249F587700541C27 /* HeaderView.m */; };
+		F30C97F0249F7AAE00541C27 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C97EF249F7AAE00541C27 /* GalleryViewController.m */; };
+		F30C97F5249F7C5A00541C27 /* GalleryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C97F3249F7C5A00541C27 /* GalleryCollectionViewCell.m */; };
+		F30C97F6249F7C5A00541C27 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C97F4249F7C5A00541C27 /* GalleryCollectionViewCell.xib */; };
+		F30C97FA249FB63E00541C27 /* DitailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C97F8249FB63E00541C27 /* DitailedViewController.m */; };
+		F30C97FB249FB63E00541C27 /* DitailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C97F9249FB63E00541C27 /* DitailedViewController.xib */; };
+		F30C97FF249FFB1C00541C27 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C97FD249FFB1C00541C27 /* HomeViewController.m */; };
+		F30C9800249FFB1C00541C27 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C97FE249FFB1C00541C27 /* HomeViewController.xib */; };
+		F30C980324A0132900541C27 /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980224A0132900541C27 /* RoundedButton.m */; };
+		F30C980924A0A40B00541C27 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980824A0A40B00541C27 /* CircleView.m */; };
+		F30C980D24A0BD3C00541C27 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980B24A0BD3C00541C27 /* StartViewController.m */; };
+		F30C980E24A0BD3C00541C27 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C980C24A0BD3C00541C27 /* StartViewController.xib */; };
 		F374E422249C26170071790A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F374E421249C26170071790A /* AppDelegate.m */; };
 		F374E42D249C261E0071790A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F374E42C249C261E0071790A /* Assets.xcassets */; };
 		F374E430249C261E0071790A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374E42E249C261E0071790A /* LaunchScreen.storyboard */; };
@@ -20,6 +33,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F30C97E9249F583000541C27 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		F30C97EB249F587700541C27 /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		F30C97EC249F587700541C27 /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		F30C97EE249F7AAE00541C27 /* GalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		F30C97EF249F7AAE00541C27 /* GalleryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		F30C97F2249F7C5A00541C27 /* GalleryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCollectionViewCell.h; sourceTree = "<group>"; };
+		F30C97F3249F7C5A00541C27 /* GalleryCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryCollectionViewCell.m; sourceTree = "<group>"; };
+		F30C97F4249F7C5A00541C27 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		F30C97F7249FB63E00541C27 /* DitailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DitailedViewController.h; sourceTree = "<group>"; };
+		F30C97F8249FB63E00541C27 /* DitailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DitailedViewController.m; sourceTree = "<group>"; };
+		F30C97F9249FB63E00541C27 /* DitailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DitailedViewController.xib; sourceTree = "<group>"; };
+		F30C97FC249FFB1C00541C27 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		F30C97FD249FFB1C00541C27 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		F30C97FE249FFB1C00541C27 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		F30C980124A0132900541C27 /* RoundedButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
+		F30C980224A0132900541C27 /* RoundedButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
+		F30C980724A0A40B00541C27 /* CircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		F30C980824A0A40B00541C27 /* CircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		F30C980A24A0BD3C00541C27 /* StartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		F30C980B24A0BD3C00541C27 /* StartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		F30C980C24A0BD3C00541C27 /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
 		F374E41D249C26170071790A /* rs.ios-stage2-task6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rs.ios-stage2-task6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F374E420249C26170071790A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F374E421249C26170071790A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +85,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F30C97E8249F57E200541C27 /* EmbendedView */ = {
+			isa = PBXGroup;
+			children = (
+				F30C97E9249F583000541C27 /* HeaderView.xib */,
+				F30C97EB249F587700541C27 /* HeaderView.h */,
+				F30C97EC249F587700541C27 /* HeaderView.m */,
+				F30C980124A0132900541C27 /* RoundedButton.h */,
+				F30C980224A0132900541C27 /* RoundedButton.m */,
+				F30C980724A0A40B00541C27 /* CircleView.h */,
+				F30C980824A0A40B00541C27 /* CircleView.m */,
+			);
+			path = EmbendedView;
+			sourceTree = "<group>";
+		};
+		F30C97F1249F7C3100541C27 /* GalleryCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F30C97F2249F7C5A00541C27 /* GalleryCollectionViewCell.h */,
+				F30C97F3249F7C5A00541C27 /* GalleryCollectionViewCell.m */,
+				F30C97F4249F7C5A00541C27 /* GalleryCollectionViewCell.xib */,
+			);
+			path = GalleryCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		F374E414249C26170071790A = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +128,7 @@
 		F374E41F249C26170071790A /* rs.ios-stage2-task6 */ = {
 			isa = PBXGroup;
 			children = (
+				F30C97E8249F57E200541C27 /* EmbendedView */,
 				F39E5BF2249DF7B500CB854A /* Cells */,
 				F39E5BEE249D62C800CB854A /* Helpers */,
 				F3919AAA249CD0AE00CBEEA7 /* Extension */,
@@ -91,6 +150,17 @@
 				F3919AA8249CCAEF00CBEEA7 /* RootViewController.m */,
 				F39E5BEB249D12E900CB854A /* InfoViewController.h */,
 				F39E5BEC249D12E900CB854A /* InfoViewController.m */,
+				F30C97EE249F7AAE00541C27 /* GalleryViewController.h */,
+				F30C97EF249F7AAE00541C27 /* GalleryViewController.m */,
+				F30C97F7249FB63E00541C27 /* DitailedViewController.h */,
+				F30C97F8249FB63E00541C27 /* DitailedViewController.m */,
+				F30C97F9249FB63E00541C27 /* DitailedViewController.xib */,
+				F30C97FC249FFB1C00541C27 /* HomeViewController.h */,
+				F30C97FD249FFB1C00541C27 /* HomeViewController.m */,
+				F30C97FE249FFB1C00541C27 /* HomeViewController.xib */,
+				F30C980A24A0BD3C00541C27 /* StartViewController.h */,
+				F30C980B24A0BD3C00541C27 /* StartViewController.m */,
+				F30C980C24A0BD3C00541C27 /* StartViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -116,6 +186,7 @@
 		F39E5BF2249DF7B500CB854A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F30C97F1249F7C3100541C27 /* GalleryCollectionViewCell */,
 				F39E5BF3249DF7C500CB854A /* InfoTableViewCell */,
 			);
 			path = Cells;
@@ -190,7 +261,12 @@
 			files = (
 				F374E430249C261E0071790A /* LaunchScreen.storyboard in Resources */,
 				F39E5BF8249DF7ED00CB854A /* InfoTableViewCell.xib in Resources */,
+				F30C97FB249FB63E00541C27 /* DitailedViewController.xib in Resources */,
 				F374E42D249C261E0071790A /* Assets.xcassets in Resources */,
+				F30C97F6249F7C5A00541C27 /* GalleryCollectionViewCell.xib in Resources */,
+				F30C980E24A0BD3C00541C27 /* StartViewController.xib in Resources */,
+				F30C9800249FFB1C00541C27 /* HomeViewController.xib in Resources */,
+				F30C97EA249F583000541C27 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,10 +280,18 @@
 				F374E422249C26170071790A /* AppDelegate.m in Sources */,
 				F39E5BF1249D631800CB854A /* PhotoKitHelper.m in Sources */,
 				F374E433249C261E0071790A /* main.m in Sources */,
+				F30C97ED249F587700541C27 /* HeaderView.m in Sources */,
+				F30C980924A0A40B00541C27 /* CircleView.m in Sources */,
+				F30C97FA249FB63E00541C27 /* DitailedViewController.m in Sources */,
 				F39E5BE7249CD28900CB854A /* UIColor+RSSchool.m in Sources */,
+				F30C97F5249F7C5A00541C27 /* GalleryCollectionViewCell.m in Sources */,
 				F39E5BED249D12E900CB854A /* InfoViewController.m in Sources */,
+				F30C980324A0132900541C27 /* RoundedButton.m in Sources */,
 				F3919AA9249CCAEF00CBEEA7 /* RootViewController.m in Sources */,
 				F39E5BF7249DF7ED00CB854A /* InfoTableViewCell.m in Sources */,
+				F30C980D24A0BD3C00541C27 /* StartViewController.m in Sources */,
+				F30C97F0249F7AAE00541C27 /* GalleryViewController.m in Sources */,
+				F30C97FF249FFB1C00541C27 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,11 @@
 #import "PhotoKitHelper.h"
 #import "UIColor+RSSchool.h"
 #import "InfoTableViewCell.h"
+#import "HeaderView.h"
 
 @interface InfoViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,strong)UITableView* tableView;
+@property (nonatomic,strong)HeaderView* headerView;
 @property (nonatomic,strong)PhotoKitHelper* galleryHelper;
 @end
 
@@ -25,27 +27,41 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:[InfoTableViewCell reuseId] bundle:nil] forCellReuseIdentifier:[InfoTableViewCell reuseId]];
-    
-    self.galleryHelper = [[PhotoKitHelper alloc]init];
     [self.view addSubview:self.tableView];
+    
+    self.headerView = [[HeaderView alloc] init];
+    [self.headerView setTitleText:@"info"];
+    [self.view addSubview:self.headerView];
+    
+    self.galleryHelper = [[PhotoKitHelper alloc]initWithType:PhotoKitRequestTypeAll];
     [self setupLoyaout];
 }
 
 - (void) setupLoyaout {
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.headerView.translatesAutoresizingMaskIntoConstraints = NO;
     if (@available(iOS 11.0, *)) {
         [NSLayoutConstraint activateConstraints:@[
-        [self.view.safeAreaLayoutGuide.leadingAnchor constraintEqualToAnchor:self.tableView.leadingAnchor],
-        [self.view.safeAreaLayoutGuide.trailingAnchor constraintEqualToAnchor:self.tableView.trailingAnchor],
-        [self.view.safeAreaLayoutGuide.bottomAnchor constraintEqualToAnchor:self.tableView.bottomAnchor],
-        [self.view.safeAreaLayoutGuide.topAnchor constraintEqualToAnchor:self.tableView.topAnchor]
+            [self.headerView.heightAnchor constraintEqualToConstant:50],
+            [self.view.safeAreaLayoutGuide.leadingAnchor constraintEqualToAnchor:self.headerView.leadingAnchor],
+            [self.view.safeAreaLayoutGuide.trailingAnchor constraintEqualToAnchor: self.headerView.trailingAnchor],
+            [self.view.safeAreaLayoutGuide.topAnchor constraintEqualToAnchor: self.headerView.topAnchor],
+            [self.view.safeAreaLayoutGuide.leadingAnchor constraintEqualToAnchor:self.tableView.leadingAnchor],
+            [self.view.safeAreaLayoutGuide.trailingAnchor constraintEqualToAnchor:self.tableView.trailingAnchor],
+            [self.view.safeAreaLayoutGuide.bottomAnchor constraintEqualToAnchor:self.tableView.bottomAnchor],
+            [self.headerView.bottomAnchor constraintEqualToAnchor:self.tableView.topAnchor]
         ]];
     } else {
-        [[self.tableView.topAnchor constraintEqualToAnchor:self.topLayoutGuide.bottomAnchor] setActive:YES];
-        [[self.view.leadingAnchor constraintEqualToAnchor:self.tableView.leadingAnchor] setActive:YES];
-        [[self.view.trailingAnchor constraintEqualToAnchor:self.tableView.trailingAnchor] setActive:YES];
-        [[self.bottomLayoutGuide.topAnchor constraintEqualToAnchor:self.tableView.bottomAnchor] setActive:YES];
-        [[self.topLayoutGuide.bottomAnchor constraintEqualToAnchor:self.tableView.topAnchor] setActive:YES];
+        [NSLayoutConstraint activateConstraints:@[
+            [self.headerView.heightAnchor constraintEqualToConstant:50],
+            [self.headerView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+            [self.view.leadingAnchor constraintEqualToAnchor:self.tableView.leadingAnchor],
+            [self.headerView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor ],
+            [self.view.trailingAnchor constraintEqualToAnchor:self.tableView.trailingAnchor],
+            [self.headerView.topAnchor constraintEqualToAnchor: self.topLayoutGuide.bottomAnchor],
+            [self.bottomLayoutGuide.topAnchor constraintEqualToAnchor:self.tableView.bottomAnchor],
+            [self.headerView.bottomAnchor constraintEqualToAnchor:self.tableView.topAnchor]
+        ]];
     }
     
 }
@@ -53,19 +69,38 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PHAsset* item = [self.galleryHelper itemAt:indexPath.item];
     InfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[InfoTableViewCell reuseId] forIndexPath:indexPath];
-    [cell setMediaAsset:item];
+    cell.representedAssetIdentifier = item.localIdentifier;
     __weak typeof(cell) weakCell = cell;
     __weak typeof(item) weakItem = item;
+
     
-    [self.galleryHelper requestImage:item targetSize:CGSizeMake(100.0f, 100.0f) contentMode:PHImageContentModeAspectFill resultHandler:^(UIImage * _Nullable result) {
+    [self.galleryHelper requestImage:item targetSize:CGSizeMake(100.0f, 100.0f) contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
+        
         if ([weakCell.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
             [weakCell setImageLabel:result];
         }
     }];
     
-    [self.galleryHelper requestFileNameForAssets:item resultHandler:^(NSString * _Nullable result) {
-        [weakCell setFileName:result];
-    }];
+
+    switch (item.mediaType) {
+        case PHAssetMediaTypeUnknown:
+            [cell setCellStyle:InfoTableViewCellStyleOther];
+            break;
+        case PHAssetMediaTypeImage:
+            [cell setCellStyle:InfoTableViewCellStylePhoto];
+            [cell setDescriptionText:[[NSString alloc]initWithFormat:@"%lux%lu",item.pixelWidth,item.pixelHeight]];
+            break;
+        case PHAssetMediaTypeVideo:
+            [cell setCellStyle:InfoTableViewCellStyleVideo];
+            [cell setDescriptionText:[[NSString alloc]initWithFormat:@"%lux%lu %@",item.pixelWidth,item.pixelHeight, [self formatDuration:item.duration]]];
+            break;
+        case PHAssetMediaTypeAudio:
+            [cell setCellStyle:InfoTableViewCellStyleAudio];
+            [cell setDescriptionText:[[NSString alloc]initWithFormat:@"%@", [self formatDuration:item.duration]]];
+            break;
+    }
+    
+    [cell setFileName:[self.galleryHelper fileNameForAssets:item]];
     
     return cell;
 }
@@ -76,5 +111,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {}
+
+- (NSString*)formatDuration:(NSTimeInterval)duration {
+    int minutes = (int)duration / 60;
+    int seconds = (int)duration % 60;
+
+    NSString *time = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
+    return time;
+}
 
 @end

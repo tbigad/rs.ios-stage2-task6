@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartViewController">
+            <connections>
+                <outlet property="circleView" destination="Zgy-dZ-D9d" id="lod-DZ-hG8"/>
+                <outlet property="cubeView" destination="vzW-Gr-8X6" id="1ji-TT-MMU"/>
+                <outlet property="startBtn" destination="tX2-2M-Qz4" id="feA-aJ-PyD"/>
+                <outlet property="triangleView" destination="Z0B-Hg-T0g" id="4dB-Wy-tdg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzW-Gr-8X6" customClass="CircleView">
+                    <rect key="frame" x="115" y="194.5" width="90" height="89.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="vzW-Gr-8X6" secondAttribute="height" multiplier="1:1" id="7Du-1y-In2"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="type">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0B-Hg-T0g" customClass="CircleView">
+                    <rect key="frame" x="215" y="194.5" width="89.5" height="89.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Z0B-Hg-T0g" secondAttribute="height" multiplier="1:1" id="a2Q-ZS-uar"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="type">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgy-dZ-D9d" customClass="CircleView">
+                    <rect key="frame" x="15.5" y="194.5" width="89.5" height="89.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Zgy-dZ-D9d" secondAttribute="height" multiplier="1:1" id="H2B-FH-XWK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="type">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you ready?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-qX-uIj">
+                    <rect key="frame" x="93.5" y="40" width="133.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tX2-2M-Qz4" customClass="RoundedButton">
+                    <rect key="frame" x="30" y="468" width="260" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="MgG-CY-daN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <state key="normal" title="Start">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTappedStartButton:" destination="-1" eventType="touchUpInside" id="G6m-Xf-cHU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="vzW-Gr-8X6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="07K-fT-BdJ"/>
+                <constraint firstItem="tX2-2M-Qz4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0S6-58-igy"/>
+                <constraint firstItem="Z0B-Hg-T0g" firstAttribute="width" secondItem="vzW-Gr-8X6" secondAttribute="width" id="20j-QZ-GJC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="tX2-2M-Qz4" secondAttribute="bottom" constant="50" id="3jR-TT-PAe"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="tX2-2M-Qz4" secondAttribute="trailing" constant="30" id="5d7-dm-kIa"/>
+                <constraint firstItem="vzW-Gr-8X6" firstAttribute="leading" secondItem="Zgy-dZ-D9d" secondAttribute="trailing" constant="10" id="Fti-Ne-YSy"/>
+                <constraint firstItem="Z0B-Hg-T0g" firstAttribute="leading" secondItem="vzW-Gr-8X6" secondAttribute="trailing" constant="10" id="GGE-41-in2"/>
+                <constraint firstItem="vzW-Gr-8X6" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Iaz-aX-gPm"/>
+                <constraint firstItem="Zgy-dZ-D9d" firstAttribute="width" secondItem="vzW-Gr-8X6" secondAttribute="width" id="LJM-Ya-C6r"/>
+                <constraint firstItem="ufp-qX-uIj" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="aYX-TF-4FA"/>
+                <constraint firstItem="vzW-Gr-8X6" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.28" id="dGc-7S-pMA"/>
+                <constraint firstItem="Zgy-dZ-D9d" firstAttribute="centerY" secondItem="vzW-Gr-8X6" secondAttribute="centerY" id="fMM-jQ-zpF"/>
+                <constraint firstItem="tX2-2M-Qz4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="ifN-GK-dXe"/>
+                <constraint firstItem="ufp-qX-uIj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iwz-rD-CzF"/>
+                <constraint firstItem="Z0B-Hg-T0g" firstAttribute="centerY" secondItem="vzW-Gr-8X6" secondAttribute="centerY" id="y2w-Il-6Qf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="131.25" y="124.64788732394366"/>
+        </view>
+    </objects>
+</document>
