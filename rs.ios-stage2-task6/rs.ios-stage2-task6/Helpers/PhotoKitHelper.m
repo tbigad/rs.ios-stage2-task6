@@ -22,7 +22,7 @@
         [PHPhotoLibrary.sharedPhotoLibrary registerChangeObserver:self];
         _photoManager = [[PHCachingImageManager alloc]init];
         PHFetchOptions* options = [[PHFetchOptions alloc]init];
-        options.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:YES] ];
+        options.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:NO] ];
         if(type == PhotoKitRequestTypeImage) {
             options.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
         }
@@ -32,7 +32,12 @@
 }
 
 - (void)photoLibraryDidChange:(PHChange *)changeInstance {
-    
+    PHFetchResultChangeDetails *changeDitails = [changeInstance changeDetailsForFetchResult:self.fetchResult];
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakSelf.fetchResult = [changeDitails fetchResultAfterChanges];
+        [weakSelf.delegate libraryDidChage:changeDitails];
+    });
 }
 
 - (void)dealloc

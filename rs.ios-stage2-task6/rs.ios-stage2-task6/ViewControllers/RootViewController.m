@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTabs];
+    [self setSelectedIndex:1];
 }
 
 - (void) setupTabs {

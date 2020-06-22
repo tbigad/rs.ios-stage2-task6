@@ -18,9 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     StartViewController *start = [StartViewController new];
-    
+    __weak typeof(self) weakSelf = self;
     start.succecsStartTapped = ^{
-        [self.window setRootViewController:[RootViewController new]];
+        [weakSelf.window setRootViewController:[RootViewController new]];
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

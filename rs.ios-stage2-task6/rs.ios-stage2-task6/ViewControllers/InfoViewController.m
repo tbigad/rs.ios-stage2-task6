@@ -12,7 +12,7 @@
 #import "InfoTableViewCell.h"
 #import "HeaderView.h"
 
-@interface InfoViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface InfoViewController () <UITableViewDelegate, UITableViewDataSource, PhotoKitHelperDelegate>
 @property (nonatomic,strong)UITableView* tableView;
 @property (nonatomic,strong)HeaderView* headerView;
 @property (nonatomic,strong)PhotoKitHelper* galleryHelper;
@@ -34,6 +34,7 @@
     [self.view addSubview:self.headerView];
     
     self.galleryHelper = [[PhotoKitHelper alloc]initWithType:PhotoKitRequestTypeAll];
+    self.galleryHelper.delegate = self;
     [self setupLoyaout];
 }
 
@@ -119,5 +120,10 @@
     NSString *time = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
     return time;
 }
+
+- (void)libraryDidChage:(nonnull PHFetchResultChangeDetails *)ditails {
+    [self.tableView reloadData];
+}
+
 
 @end

@@ -10,13 +10,18 @@
 #import <Photos/Photos.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol PhotoKitHelperDelegate <NSObject>
+-(void)libraryDidChage:(PHFetchResultChangeDetails *)ditails;
+@end
+
 typedef NS_ENUM(NSInteger,PhotoKitRequestType) {
     PhotoKitRequestTypeAll,
     PhotoKitRequestTypeImage
 };
 
-
 @interface PhotoKitHelper : NSObject
+@property (nonatomic, weak, nullable) id <PhotoKitHelperDelegate> delegate;
+
 - (instancetype)initWithType:(PhotoKitRequestType)type;
 -(NSUInteger)itemsCount;
 -(PHAsset*) itemAt:(NSUInteger)index;

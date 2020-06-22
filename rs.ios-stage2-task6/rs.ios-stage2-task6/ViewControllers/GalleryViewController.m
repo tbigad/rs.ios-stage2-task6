@@ -12,7 +12,7 @@
 #import "GalleryCollectionViewCell.h"
 #import "DitailedViewController.h"
 
-@interface GalleryViewController ()< UICollectionViewDelegate, UICollectionViewDataSource>
+@interface GalleryViewController ()< UICollectionViewDelegate, UICollectionViewDataSource, PhotoKitHelperDelegate>
 @property (nonatomic,strong)UICollectionView* collectionView;
 @property (nonatomic,strong)HeaderView* headerView;
 @property (nonatomic,strong)PhotoKitHelper* galleryHelper;
@@ -51,11 +51,13 @@
     [self.view addSubview:self.headerView];
     
     [self.view addSubview:self.collectionView];
+    
+    self.galleryHelper.delegate = self;
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    [self setupLoyaout];    
+    [self setupLoyaout];
 }
 
 
@@ -99,7 +101,7 @@
             [weakSelf presentViewController:weakDitailedVC animated:YES completion:nil];
         }
     }];
-
+    
 }
 
 - (void) setupLoyaout {
@@ -128,6 +130,9 @@
             [self.headerView.bottomAnchor constraintEqualToAnchor:self.collectionView.topAnchor]
         ]];
     }
-    
+}
+
+- (void)libraryDidChage:(PHFetchResultChangeDetails *)ditails {
+    [self.collectionView reloadData];
 }
 @end
