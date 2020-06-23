@@ -29,19 +29,20 @@
 
 - (void) setupTabs {
     self.infoTab = [[InfoViewController alloc] init];
-    UITabBarItem* infoTabItem = [[UITabBarItem alloc]initWithTitle:@"" image:[UIImage imageNamed:@"info_unselected"] selectedImage:[UIImage imageNamed:@"info_selected"]];
+    UITabBarItem* infoTabItem = [[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"info_unselected"] selectedImage:[UIImage imageNamed:@"info_selected"]];
     self.infoTab.tabBarItem = infoTabItem;
     [self addChildViewController: self.infoTab];
     
     self.galleryTab = [[GalleryViewController alloc] init];
-    UITabBarItem* galleryTabItem = [[UITabBarItem alloc]initWithTitle:@"" image:[UIImage imageNamed:@"gallery_unselected"] selectedImage:[UIImage imageNamed:@"gallery_selected"]];
+    UITabBarItem* galleryTabItem = [[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"gallery_unselected"] selectedImage:[UIImage imageNamed:@"gallery_selected"]];
     self.galleryTab.tabBarItem = galleryTabItem;
     [self addChildViewController: self.galleryTab];
     
     self.homeTab = [[HomeViewController alloc] init];
+    self.homeTab.title = @"RSSchool Task 6";
     UINavigationController* homeNav = [[UINavigationController alloc] initWithRootViewController:self.homeTab];
     [self addChildViewController: homeNav];
-    UITabBarItem* homeTabItem = [[UITabBarItem alloc]initWithTitle:@"" image:[UIImage imageNamed:@"home_unselected"] selectedImage:[UIImage imageNamed:@"home_selected"]];
+    UITabBarItem* homeTabItem = [[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"home_unselected"] selectedImage:[UIImage imageNamed:@"home_selected"]];
     homeNav.tabBarItem = homeTabItem;
     homeNav.navigationBar.backgroundColor = [UIColor rsschoolYellowColor];
     [homeNav.navigationBar setTitleTextAttributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:18.0f weight:UIFontWeightSemibold],

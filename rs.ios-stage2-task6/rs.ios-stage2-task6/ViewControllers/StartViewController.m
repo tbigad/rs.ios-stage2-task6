@@ -9,14 +9,14 @@
 #import "StartViewController.h"
 #import "RoundedButton.h"
 #import "UIColor+RSSchool.h"
-#import "CircleView.h"
+#import "FigureView.h"
 #import <Photos/Photos.h>
 
 @interface StartViewController ()
 @property (strong, nonatomic) IBOutlet RoundedButton *startBtn;
-@property (strong, nonatomic) IBOutlet CircleView *circleView;
-@property (strong, nonatomic) IBOutlet CircleView *triangleView;
-@property (strong, nonatomic) IBOutlet CircleView *cubeView;
+@property (strong, nonatomic) IBOutlet FigureView *circleView;
+@property (strong, nonatomic) IBOutlet FigureView *triangleView;
+@property (strong, nonatomic) IBOutlet FigureView *cubeView;
 @end
 
 @implementation StartViewController

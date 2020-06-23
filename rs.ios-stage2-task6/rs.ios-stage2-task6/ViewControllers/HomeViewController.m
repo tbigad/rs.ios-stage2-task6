@@ -9,14 +9,14 @@
 #import "HomeViewController.h"
 #import "RoundedButton.h"
 #import "UIColor+RSSchool.h"
-#import "CircleView.h"
+#import "FigureView.h"
 
 @interface HomeViewController ()
 @property (strong, nonatomic) IBOutlet RoundedButton *openCvButton;
 @property (strong, nonatomic) IBOutlet RoundedButton *goToStartBtn;
-@property (strong, nonatomic) IBOutlet CircleView *circleView;
-@property (strong, nonatomic) IBOutlet CircleView *triangleView;
-@property (strong, nonatomic) IBOutlet CircleView *cubeView;
+@property (strong, nonatomic) IBOutlet FigureView *circleView;
+@property (strong, nonatomic) IBOutlet FigureView *triangleView;
+@property (strong, nonatomic) IBOutlet FigureView *cubeView;
 @property (strong, nonatomic) IBOutlet UILabel *phoneName;
 @property (strong, nonatomic) IBOutlet UILabel *phoneModel;
 @property (strong, nonatomic) IBOutlet UILabel *phoneSystemName;
@@ -31,7 +31,6 @@
     [self.openCvButton setBackgroundColor:[UIColor rsschoolYellowColor]];
     [self.goToStartBtn setBackgroundColor:[UIColor rsschoolRedColor]];
     [self fillInfoLabels];
-    [self setTitle:@"RSSchool Task 6"];
     [self setupLayout];
 }
 

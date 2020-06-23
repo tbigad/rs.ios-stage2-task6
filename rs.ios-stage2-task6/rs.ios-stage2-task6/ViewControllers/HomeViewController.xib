@@ -85,7 +85,7 @@
                                         <constraint firstAttribute="height" constant="2" id="odl-qB-lyc"/>
                                     </constraints>
                                 </view>
-                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sT7-kY-YWs" customClass="CircleView">
+                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sT7-kY-YWs" customClass="FigureView">
                                     <rect key="frame" x="97.5" y="47" width="65" height="65"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="sT7-kY-YWs" secondAttribute="height" multiplier="1:1" id="VWs-2k-KFj"/>
@@ -96,7 +96,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7I-OH-88n" customClass="CircleView">
+                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7I-OH-88n" customClass="FigureView">
                                     <rect key="frame" x="27" y="48.5" width="62.5" height="62.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="L7I-OH-88n" secondAttribute="height" multiplier="1:1" id="7r8-m1-4H3"/>
@@ -107,7 +107,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5o-wN-E1O" customClass="CircleView">
+                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5o-wN-E1O" customClass="FigureView">
                                     <rect key="frame" x="170.5" y="48.5" width="62.5" height="62.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="z5o-wN-E1O" secondAttribute="height" multiplier="1:1" id="PhV-rb-GYd"/>

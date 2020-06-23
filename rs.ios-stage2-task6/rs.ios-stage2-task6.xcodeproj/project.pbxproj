@@ -17,7 +17,7 @@
 		F30C97FF249FFB1C00541C27 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C97FD249FFB1C00541C27 /* HomeViewController.m */; };
 		F30C9800249FFB1C00541C27 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C97FE249FFB1C00541C27 /* HomeViewController.xib */; };
 		F30C980324A0132900541C27 /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980224A0132900541C27 /* RoundedButton.m */; };
-		F30C980924A0A40B00541C27 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980824A0A40B00541C27 /* CircleView.m */; };
+		F30C980924A0A40B00541C27 /* FigureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980824A0A40B00541C27 /* FigureView.m */; };
 		F30C980D24A0BD3C00541C27 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C980B24A0BD3C00541C27 /* StartViewController.m */; };
 		F30C980E24A0BD3C00541C27 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F30C980C24A0BD3C00541C27 /* StartViewController.xib */; };
 		F35E870824A124110077B97E /* UIImage+SizeToFit.m in Sources */ = {isa = PBXBuildFile; fileRef = F35E870724A124110077B97E /* UIImage+SizeToFit.m */; };
@@ -50,8 +50,8 @@
 		F30C97FE249FFB1C00541C27 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		F30C980124A0132900541C27 /* RoundedButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
 		F30C980224A0132900541C27 /* RoundedButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
-		F30C980724A0A40B00541C27 /* CircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
-		F30C980824A0A40B00541C27 /* CircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		F30C980724A0A40B00541C27 /* FigureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FigureView.h; sourceTree = "<group>"; };
+		F30C980824A0A40B00541C27 /* FigureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FigureView.m; sourceTree = "<group>"; };
 		F30C980A24A0BD3C00541C27 /* StartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		F30C980B24A0BD3C00541C27 /* StartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		F30C980C24A0BD3C00541C27 /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 				F30C97EC249F587700541C27 /* HeaderView.m */,
 				F30C980124A0132900541C27 /* RoundedButton.h */,
 				F30C980224A0132900541C27 /* RoundedButton.m */,
-				F30C980724A0A40B00541C27 /* CircleView.h */,
-				F30C980824A0A40B00541C27 /* CircleView.m */,
+				F30C980724A0A40B00541C27 /* FigureView.h */,
+				F30C980824A0A40B00541C27 /* FigureView.m */,
 			);
 			path = EmbendedView;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 				F39E5BF1249D631800CB854A /* PhotoKitHelper.m in Sources */,
 				F374E433249C261E0071790A /* main.m in Sources */,
 				F30C97ED249F587700541C27 /* HeaderView.m in Sources */,
-				F30C980924A0A40B00541C27 /* CircleView.m in Sources */,
+				F30C980924A0A40B00541C27 /* FigureView.m in Sources */,
 				F30C97FA249FB63E00541C27 /* DitailedViewController.m in Sources */,
 				F39E5BE7249CD28900CB854A /* UIColor+RSSchool.m in Sources */,
 				F30C97F5249F7C5A00541C27 /* GalleryCollectionViewCell.m in Sources */,

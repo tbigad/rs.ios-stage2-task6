@@ -6,11 +6,11 @@
 //  Copyright © 2020 Pavel N. All rights reserved.
 //
 
-#import "CircleView.h"
+#import "FigureView.h"
 #import "UIColor+RSSchool.h"
 
 IB_DESIGNABLE
-@implementation CircleView
+@implementation FigureView
 
 - (void)drawRect:(CGRect)rect {
     if(self.type == FigureTypeCircle) {
