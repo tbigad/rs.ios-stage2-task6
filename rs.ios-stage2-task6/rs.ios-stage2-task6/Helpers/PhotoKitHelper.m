@@ -79,4 +79,21 @@
     }
 }
 
+- (void)requestExportVideoForAsset:(PHAsset*)asset resultHandler:(void (^)(NSURL *__nullable fileURL))resultHandler {
+    PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+    options.version = PHVideoRequestOptionsVersionOriginal;
+    
+    [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:
+     ^(AVAsset * _Nullable avasset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+        
+        AVURLAsset *avurlasset = (AVURLAsset*) avasset;
+        NSString *tmpDirectory = NSTemporaryDirectory();
+        NSString *tmpFile = [tmpDirectory stringByAppendingPathComponent:[avurlasset.URL lastPathComponent]];
+        NSURL *fileURL = [NSURL fileURLWithPath:tmpFile];
+        if([[NSFileManager defaultManager] copyItemAtURL:avurlasset.URL toURL:fileURL error:nil]) {
+             resultHandler(fileURL);
+        }
+     }];
+}
+
 @end

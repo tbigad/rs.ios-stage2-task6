@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoKitHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSDate* modificationDate;
 @property (nonatomic, copy) NSString* typeOfContent;
 @property (nonatomic, copy) NSString* imageName;
+
+@property(nonatomic,weak) PHAsset *currentAsset;
+@property(nonatomic,weak) PhotoKitHelper* helper; 
 
 @end
 

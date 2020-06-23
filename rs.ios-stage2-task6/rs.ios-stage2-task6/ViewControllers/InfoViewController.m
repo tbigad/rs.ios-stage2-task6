@@ -122,6 +122,8 @@
     ditailedVC.modificationDate = item.modificationDate;
     ditailedVC.typeOfContent = [self.galleryHelper stringFromMediaType:item.mediaType];
     ditailedVC.imageName = [self.galleryHelper fileNameForAssets:item];
+    ditailedVC.currentAsset = item;
+    ditailedVC.helper = self.galleryHelper;
     __weak typeof(ditailedVC) weakDitailedVC = ditailedVC;
     __weak typeof(item) weakItem = item;
     __weak typeof(self) weakSelf = self;

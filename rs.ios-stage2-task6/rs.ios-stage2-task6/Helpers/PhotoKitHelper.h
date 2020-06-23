@@ -21,11 +21,11 @@ typedef NS_ENUM(NSInteger,PhotoKitRequestType) {
 
 @interface PhotoKitHelper : NSObject
 @property (nonatomic, weak, nullable) id <PhotoKitHelperDelegate> delegate;
-
 - (instancetype)initWithType:(PhotoKitRequestType)type;
 -(NSUInteger)itemsCount;
 -(PHAsset*) itemAt:(NSUInteger)index;
 -(void) requestImage:(PHAsset*)asset targetSize:(CGSize)size contentMode:(PHImageContentMode)mode sync:(BOOL)synchronous resultHandler:(void (^)(UIImage *_Nullable result))handler;
+- (void)requestExportVideoForAsset:(PHAsset*)asset resultHandler:(void (^)(NSURL *__nullable fileURL))resultHandler;
 -(NSString *) fileNameForAssets:(PHAsset*)asset;
 - (NSString*) stringFromMediaType:(PHAssetMediaType)type;
 @end
