@@ -49,19 +49,23 @@ IB_DESIGNABLE
 
 - (void)animate {
     if(self.type == FigureTypeCircle) {
-        [UIView animateWithDuration:1.0 delay:0 options: UIViewAnimationOptionAutoreverse animations:^{
+        [UIView animateWithDuration:1.0 delay:0 options: (UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat) animations:^{
             [self setTransform: CGAffineTransformMakeScale(1.2, 1.2)];
         } completion:^(BOOL finished) {
-            [self setTransform: CGAffineTransformMakeScale(1, 1)];
-            [self animate];
+            if (finished) {
+                [self setTransform: CGAffineTransformMakeScale(1, 1)];
+                [self animate];
+            }
         }];
     } else if (self.type == FigureTypeCube) {
-        [self setTransform: CGAffineTransformMakeTranslation(0, -10)];
-        [UIView animateWithDuration:1.0 delay:0 options: UIViewAnimationOptionAutoreverse animations:^{
+        [UIView animateWithDuration:1.0 delay:0 options: (UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat) animations:^{
             [self setTransform: CGAffineTransformMakeTranslation(0, 10)];
         } completion:^(BOOL finished) {
-            [self setTransform: CGAffineTransformMakeTranslation(0, 0)];
-            [self animate];
+            if (finished) {
+                [self setTransform: CGAffineTransformMakeTranslation(0, 0)];
+                [self animate];
+                
+            }
         }];
     }else {
         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{

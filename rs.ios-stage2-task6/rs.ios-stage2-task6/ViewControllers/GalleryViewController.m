@@ -11,11 +11,13 @@
 #import "PhotoKitHelper.h"
 #import "GalleryCollectionViewCell.h"
 #import "DitailedViewController.h"
+#import "UIColor+RSSchool.h"
 
 @interface GalleryViewController ()< UICollectionViewDelegate, UICollectionViewDataSource, PhotoKitHelperDelegate>
 @property (nonatomic,strong)UICollectionView* collectionView;
 @property (nonatomic,strong)HeaderView* headerView;
 @property (nonatomic,strong)PhotoKitHelper* galleryHelper;
+@property (nonatomic, assign) CGSize cellSize;
 @end
 
 @implementation GalleryViewController
@@ -25,7 +27,8 @@
     if (self) {
         UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
         CGFloat itemWidth = (UIScreen.mainScreen.bounds.size.width / 3 ) - 16 - (2*2);
-        flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth);
+        _cellSize = CGSizeMake(itemWidth, itemWidth);
+        flowLayout.itemSize = _cellSize;
         flowLayout.sectionInset = UIEdgeInsetsZero;
         
         
@@ -53,6 +56,7 @@
     [self.view addSubview:self.collectionView];
     
     self.galleryHelper.delegate = self;
+    self.view.backgroundColor = [UIColor rsschoolWhiteColor];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -68,7 +72,7 @@
     __weak typeof(cell) weakCell = cell;
     __weak typeof(item) weakItem = item;
     
-    [self.galleryHelper requestImage:item targetSize:CGSizeMake(100.0f, 100.0f) contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
+    [self.galleryHelper requestImage:item targetSize:self.cellSize contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
         if ([weakCell.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
             [weakCell setImage:result];
         }
@@ -98,7 +102,7 @@
     __weak typeof(ditailedVC) weakDitailedVC = ditailedVC;
     __weak typeof(item) weakItem = item;
     __weak typeof(self) weakSelf = self;
-    [self.galleryHelper requestImage:item targetSize:CGSizeMake(item.pixelWidth, item.pixelHeight) contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
+    [self.galleryHelper requestImage:item targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
         if ([weakDitailedVC.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
             [weakDitailedVC setOriginalImage:result];
             [weakSelf presentViewController:weakDitailedVC animated:YES completion:nil];

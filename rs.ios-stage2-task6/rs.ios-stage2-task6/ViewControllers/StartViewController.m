@@ -24,20 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.startBtn.backgroundColor = [UIColor rsschoolYellowColor];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [self.circleView animate];
     [self.triangleView animate];
     [self.cubeView animate];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)didTappedStartButton:(RoundedButton *)sender {
     PHAuthorizationStatus code = [PHPhotoLibrary authorizationStatus];
     

@@ -36,6 +36,7 @@
     
     self.galleryHelper = [[PhotoKitHelper alloc]initWithType:PhotoKitRequestTypeAll];
     self.galleryHelper.delegate = self;
+    self.view.backgroundColor = [UIColor rsschoolWhiteColor];
     [self setupLoyaout];
 }
 

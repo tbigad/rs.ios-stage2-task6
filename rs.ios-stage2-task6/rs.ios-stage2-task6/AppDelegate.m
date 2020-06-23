@@ -20,13 +20,15 @@
     StartViewController *start = [StartViewController new];
     __weak typeof(self) weakSelf = self;
     start.succecsStartTapped = ^{
-        [weakSelf.window setRootViewController:[RootViewController new]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.window setRootViewController:[RootViewController new]];
+        });
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:start];
     [self.window makeKeyAndVisible];
-    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window setBackgroundColor:[UIColor clearColor]];
     return YES;
 }
 
