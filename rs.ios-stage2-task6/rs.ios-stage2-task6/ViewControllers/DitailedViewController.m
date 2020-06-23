@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *creationDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *modificationDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *contentTypeLabel;
+@property (strong, nonatomic) IBOutlet UIStackView *stackView;
 
 - (void) closeView;
 @end
@@ -52,29 +53,22 @@
 
 
 - (void) setupLoyaout {
-//    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.headerView.translatesAutoresizingMaskIntoConstraints = NO;
-//    if (@available(iOS 11.0, *)) {
-//        [NSLayoutConstraint activateConstraints:@[
-//            [self.view.safeAreaLayoutGuide.leadingAnchor constraintEqualToAnchor:self.headerView.leadingAnchor],
-//            [self.view.safeAreaLayoutGuide.trailingAnchor constraintEqualToAnchor: self.headerView.trailingAnchor],
-//            [self.view.safeAreaLayoutGuide.topAnchor constraintEqualToAnchor: self.headerView.topAnchor],
-//            [self.view.safeAreaLayoutGuide.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor],
-//            [self.view.safeAreaLayoutGuide.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor],
-//            [self.view.safeAreaLayoutGuide.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor],
-//            [self.headerView.bottomAnchor constraintEqualToAnchor:self.scrollView.topAnchor]
-//        ]];
-//    } else {
-//        [NSLayoutConstraint activateConstraints:@[
-//            [self.headerView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-//            [self.headerView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor ],
-//            [self.headerView.topAnchor constraintEqualToAnchor: self.topLayoutGuide.bottomAnchor],
-//            [self.scrollView.topAnchor constraintEqualToAnchor:self.headerView.bottomAnchor],
-//            [self.view.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor],
-//            [self.view.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor],
-//            [self.bottomLayoutGuide.topAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor]
-//        ]];
-//    }
+    self.stackView.translatesAutoresizingMaskIntoConstraints = NO;
+    if (@available(iOS 11.0, *)) {
+        [NSLayoutConstraint activateConstraints:@[
+            [self.stackView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor ],
+            [self.view.safeAreaLayoutGuide.trailingAnchor constraintEqualToAnchor:self.stackView.trailingAnchor ],
+            [self.stackView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor ],
+            [self.view.safeAreaLayoutGuide.bottomAnchor constraintEqualToAnchor:self.stackView.bottomAnchor],
+        ]];
+    } else {
+        [NSLayoutConstraint activateConstraints:@[
+            [self.stackView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+            [self.view.trailingAnchor constraintEqualToAnchor:self.stackView.trailingAnchor],
+            [self.stackView.topAnchor constraintEqualToAnchor: self.topLayoutGuide.bottomAnchor],
+            [self.bottomLayoutGuide.topAnchor constraintEqualToAnchor:self.stackView.bottomAnchor]
+        ]];
+    }
 }
 
 - (IBAction)didTappedShareBtn:(RoundedButton *)sender {
