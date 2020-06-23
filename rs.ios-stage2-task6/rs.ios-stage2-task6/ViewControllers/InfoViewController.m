@@ -20,24 +20,31 @@
 @end
 
 @implementation InfoViewController
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _tableView = [UITableView new];
+        _headerView = [[HeaderView alloc] init];
+        _galleryHelper = [[PhotoKitHelper alloc]initWithType:PhotoKitRequestTypeAll];
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.tableView = [UITableView new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:[InfoTableViewCell reuseId] bundle:nil] forCellReuseIdentifier:[InfoTableViewCell reuseId]];
     [self.view addSubview:self.tableView];
     
-    self.headerView = [[HeaderView alloc] init];
+   
     [self.headerView setTitleText:@"info"];
     [self.headerView setBackButtonIsHidden:YES];
     [self.view addSubview:self.headerView];
     
-    self.galleryHelper = [[PhotoKitHelper alloc]initWithType:PhotoKitRequestTypeAll];
     self.galleryHelper.delegate = self;
-    self.view.backgroundColor = [UIColor rsschoolWhiteColor];
     [self setupLoyaout];
 }
 
