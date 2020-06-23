@@ -32,6 +32,7 @@
     
     self.headerView = [[HeaderView alloc] init];
     [self.headerView setTitleText:@"info"];
+    [self.headerView setBackButtonIsHidden:YES];
     [self.view addSubview:self.headerView];
     
     self.galleryHelper = [[PhotoKitHelper alloc]initWithType:PhotoKitRequestTypeAll];
@@ -111,6 +112,10 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger count = [self.galleryHelper itemsCount];
     return count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UIScreen.mainScreen.bounds.size.width * 0.3;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

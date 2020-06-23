@@ -78,7 +78,7 @@
 }
 
 - (IBAction)didTappedShareBtn:(RoundedButton *)sender {
-    if([self.typeOfContent isEqualToString:@"Video"]) {
+    if(self.currentAsset.mediaType == PHAssetMediaTypeVideo) {
         __weak typeof(self) weakSelf = self;
         [self.helper requestExportVideoForAsset:self.currentAsset resultHandler:^(NSURL * _Nullable fileURL) {
             {

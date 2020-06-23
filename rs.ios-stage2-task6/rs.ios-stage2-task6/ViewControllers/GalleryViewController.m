@@ -51,6 +51,7 @@
     [self.collectionView setAllowsSelection:YES];
     
     [self.headerView setTitleText:@"Gallery"];
+    [self.headerView setBackButtonIsHidden:YES];
     [self.view addSubview:self.headerView];
     
     [self.view addSubview:self.collectionView];
@@ -119,7 +120,7 @@
     self.headerView.translatesAutoresizingMaskIntoConstraints = NO;
     if (@available(iOS 11.0, *)) {
         [NSLayoutConstraint activateConstraints:@[
-            [self.headerView.heightAnchor constraintEqualToConstant:50],
+            [self.headerView.heightAnchor constraintEqualToConstant:50.0f],
             [self.headerView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
             [self.headerView.trailingAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.trailingAnchor],
             [self.headerView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor ],
@@ -130,11 +131,11 @@
         ]];
     } else {
         [NSLayoutConstraint activateConstraints:@[
-            [self.headerView.heightAnchor constraintEqualToConstant:50],
+            [self.headerView.heightAnchor constraintEqualToConstant:50.0f],
             [self.headerView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-            [self.collectionView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+            [self.collectionView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:8.0f],
             [self.headerView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor ],
-            [self.view.trailingAnchor constraintEqualToAnchor:self.collectionView.trailingAnchor],
+            [self.view.trailingAnchor constraintEqualToAnchor:self.collectionView.trailingAnchor constant:8.0f],
             [self.headerView.topAnchor constraintEqualToAnchor: self.topLayoutGuide.bottomAnchor],
             [self.bottomLayoutGuide.topAnchor constraintEqualToAnchor:self.collectionView.bottomAnchor],
             [self.headerView.bottomAnchor constraintEqualToAnchor:self.collectionView.topAnchor]
