@@ -90,9 +90,12 @@
 
 - (NSString*) formateDate:(NSDate*)date {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocalizedDateFormatFromTemplate:@"HH:mm:ss dd.MM.yy"];
+    NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
+    [hourFormatter setLocalizedDateFormatFromTemplate:@"HH:mm:ss"];
+    [dateFormatter setLocalizedDateFormatFromTemplate:@"dd.MM.yyyy"];
     
-    return [dateFormatter stringFromDate:date];
+    
+    return [NSString stringWithFormat:@"%@ %@",[hourFormatter stringFromDate:date],[dateFormatter stringFromDate:date]];
 }
 
 @end

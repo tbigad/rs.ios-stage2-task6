@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpPreviewViewController">
+            <connections>
+                <outlet property="contentView" destination="EWC-Zq-kLw" id="7XG-9e-DGO"/>
+                <outlet property="imageView" destination="EHJ-hq-930" id="4ch-el-3Kh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWC-Zq-kLw" userLabel="ContentView">
+                    <rect key="frame" x="28" y="50" width="319" height="567"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EHJ-hq-930">
+                            <rect key="frame" x="0.0" y="0.0" width="319" height="567"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V80-nW-MOB">
+                            <rect key="frame" x="279" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="NbU-7b-gkQ"/>
+                                <constraint firstAttribute="width" constant="40" id="OcK-an-OIM"/>
+                            </constraints>
+                            <state key="normal" image="close-button"/>
+                            <connections>
+                                <action selector="didTappedCloseButton:" destination="-1" eventType="touchUpInside" id="pXq-F7-qF3"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="V80-nW-MOB" firstAttribute="top" secondItem="EWC-Zq-kLw" secondAttribute="top" id="DZ6-g8-13S"/>
+                        <constraint firstAttribute="trailing" secondItem="EHJ-hq-930" secondAttribute="trailing" id="EIg-DW-t04"/>
+                        <constraint firstItem="EHJ-hq-930" firstAttribute="leading" secondItem="EWC-Zq-kLw" secondAttribute="leading" id="e8O-ze-AXb"/>
+                        <constraint firstAttribute="bottom" secondItem="EHJ-hq-930" secondAttribute="bottom" id="gyO-a4-x4z"/>
+                        <constraint firstItem="EHJ-hq-930" firstAttribute="top" secondItem="EWC-Zq-kLw" secondAttribute="top" id="nVu-u1-JoD"/>
+                        <constraint firstAttribute="trailing" secondItem="V80-nW-MOB" secondAttribute="trailing" id="uw0-za-8kP"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.4978328339041096" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="EWC-Zq-kLw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="HE7-Zk-JIX"/>
+                <constraint firstItem="EWC-Zq-kLw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L5X-mT-yx7"/>
+                <constraint firstItem="EWC-Zq-kLw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.85" id="oPf-As-BnR"/>
+                <constraint firstItem="EWC-Zq-kLw" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.85" id="qbQ-RM-CvE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="132" y="118.29085457271366"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close-button" width="16" height="16"/>
+    </resources>
+</document>

@@ -25,6 +25,8 @@
 		F374E42D249C261E0071790A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F374E42C249C261E0071790A /* Assets.xcassets */; };
 		F374E430249C261E0071790A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374E42E249C261E0071790A /* LaunchScreen.storyboard */; };
 		F374E433249C261E0071790A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F374E432249C261E0071790A /* main.m */; };
+		F382A42824A3915A009E3F93 /* PopUpPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F382A42624A3915A009E3F93 /* PopUpPreviewViewController.m */; };
+		F382A42924A3915A009E3F93 /* PopUpPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F382A42724A3915A009E3F93 /* PopUpPreviewViewController.xib */; };
 		F3919AA9249CCAEF00CBEEA7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3919AA8249CCAEF00CBEEA7 /* RootViewController.m */; };
 		F39E5BE7249CD28900CB854A /* UIColor+RSSchool.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E5BE6249CD28900CB854A /* UIColor+RSSchool.m */; };
 		F39E5BED249D12E900CB854A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E5BEC249D12E900CB854A /* InfoViewController.m */; };
@@ -64,6 +66,9 @@
 		F374E42F249C261E0071790A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F374E431249C261E0071790A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F374E432249C261E0071790A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F382A42524A3915A009E3F93 /* PopUpPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopUpPreviewViewController.h; sourceTree = "<group>"; };
+		F382A42624A3915A009E3F93 /* PopUpPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopUpPreviewViewController.m; sourceTree = "<group>"; };
+		F382A42724A3915A009E3F93 /* PopUpPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpPreviewViewController.xib; sourceTree = "<group>"; };
 		F3919AA7249CCAEF00CBEEA7 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		F3919AA8249CCAEF00CBEEA7 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		F39E5BE5249CD28900CB854A /* UIColor+RSSchool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RSSchool.h"; sourceTree = "<group>"; };
@@ -164,6 +169,9 @@
 				F30C980A24A0BD3C00541C27 /* StartViewController.h */,
 				F30C980B24A0BD3C00541C27 /* StartViewController.m */,
 				F30C980C24A0BD3C00541C27 /* StartViewController.xib */,
+				F382A42524A3915A009E3F93 /* PopUpPreviewViewController.h */,
+				F382A42624A3915A009E3F93 /* PopUpPreviewViewController.m */,
+				F382A42724A3915A009E3F93 /* PopUpPreviewViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				F30C980E24A0BD3C00541C27 /* StartViewController.xib in Resources */,
 				F30C9800249FFB1C00541C27 /* HomeViewController.xib in Resources */,
 				F30C97EA249F583000541C27 /* HeaderView.xib in Resources */,
+				F382A42924A3915A009E3F93 /* PopUpPreviewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F374E422249C26170071790A /* AppDelegate.m in Sources */,
+				F382A42824A3915A009E3F93 /* PopUpPreviewViewController.m in Sources */,
 				F39E5BF1249D631800CB854A /* PhotoKitHelper.m in Sources */,
 				F374E433249C261E0071790A /* main.m in Sources */,
 				F30C97ED249F587700541C27 /* HeaderView.m in Sources */,

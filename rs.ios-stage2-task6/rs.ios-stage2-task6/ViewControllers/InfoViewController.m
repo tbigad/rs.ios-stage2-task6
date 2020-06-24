@@ -39,13 +39,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:[InfoTableViewCell reuseId] bundle:nil] forCellReuseIdentifier:[InfoTableViewCell reuseId]];
     [self.view addSubview:self.tableView];
     
-   
+    
     [self.headerView setTitleText:@"info"];
     [self.headerView setBackButtonIsHidden:YES];
     [self.view addSubview:self.headerView];
     
     self.galleryHelper.delegate = self;
     [self setupLoyaout];
+    self.view.backgroundColor = [UIColor rsschoolWhiteColor];
 }
 
 - (void) setupLoyaout {
@@ -83,18 +84,21 @@
     cell.representedAssetIdentifier = item.localIdentifier;
     __weak typeof(cell) weakCell = cell;
     __weak typeof(item) weakItem = item;
-
     
-    [self.galleryHelper requestImage:item targetSize:CGSizeMake(100.0f, 100.0f) contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
-        
+    
+    if((item.mediaType == PHAssetMediaTypeImage) || (item.mediaType == PHAssetMediaTypeVideo)){
+        [self.galleryHelper requestImage:item targetSize:CGSizeMake(cell.bounds.size.height, cell.bounds.size.height) contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
         if ([weakCell.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
             [weakCell setImageLabel:result];
         }
-    }];
+        }];
+        
+    }
     
-
+    
     switch (item.mediaType) {
         case PHAssetMediaTypeUnknown:
+        [cell setImageLabel:[UIImage imageNamed:@"other"] ];
             [cell setCellStyle:InfoTableViewCellStyleOther];
             break;
         case PHAssetMediaTypeImage:
@@ -107,6 +111,7 @@
             break;
         case PHAssetMediaTypeAudio:
             [cell setCellStyle:InfoTableViewCellStyleAudio];
+            [cell setImageLabel:[UIImage imageNamed:@"audio"] ];
             [cell setDescriptionText:[[NSString alloc]initWithFormat:@"%@", [self formatDuration:item.duration]]];
             break;
     }

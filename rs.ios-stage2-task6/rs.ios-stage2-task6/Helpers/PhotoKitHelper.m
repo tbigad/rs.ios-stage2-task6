@@ -22,7 +22,7 @@
         [PHPhotoLibrary.sharedPhotoLibrary registerChangeObserver:self];
         _photoManager = [[PHCachingImageManager alloc]init];
         PHFetchOptions* options = [[PHFetchOptions alloc]init];
-        options.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:NO] ];
+        options.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:YES] ];
         if(type == PhotoKitRequestTypeImage) {
             options.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
         }
@@ -83,7 +83,7 @@
     PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
     options.version = PHVideoRequestOptionsVersionOriginal;
     
-    [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:
+    [self.photoManager requestAVAssetForVideo:asset options:options resultHandler:
      ^(AVAsset * _Nullable avasset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
         
         AVURLAsset *avurlasset = (AVURLAsset*) avasset;
@@ -94,6 +94,17 @@
              resultHandler(fileURL);
         }
      }];
+}
+
+- (void) requestVideoPlayerForAsset:(PHAsset*) asset resultHandler:(void (^)(AVPlayer *__nullable playerItem))resultHandler{
+    PHVideoRequestOptions *option = [PHVideoRequestOptions new];
+    [option setNetworkAccessAllowed:YES];
+    [option setDeliveryMode:PHVideoRequestOptionsDeliveryModeAutomatic];
+    
+    [self.photoManager requestPlayerItemForVideo:asset options:option resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
+        AVPlayer* player = [[AVPlayer alloc]initWithPlayerItem:playerItem];
+        resultHandler(player);
+    }];
 }
 
 @end

@@ -86,7 +86,7 @@
                                     </constraints>
                                 </view>
                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sT7-kY-YWs" customClass="FigureView">
-                                    <rect key="frame" x="97.5" y="47" width="65" height="65"/>
+                                    <rect key="frame" x="94" y="43.5" width="72" height="72"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="sT7-kY-YWs" secondAttribute="height" multiplier="1:1" id="VWs-2k-KFj"/>
                                     </constraints>
@@ -97,7 +97,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7I-OH-88n" customClass="FigureView">
-                                    <rect key="frame" x="27" y="48.5" width="62.5" height="62.5"/>
+                                    <rect key="frame" x="17" y="45" width="69" height="69"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="L7I-OH-88n" secondAttribute="height" multiplier="1:1" id="7r8-m1-4H3"/>
                                     </constraints>
@@ -108,7 +108,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5o-wN-E1O" customClass="FigureView">
-                                    <rect key="frame" x="170.5" y="48.5" width="62.5" height="62.5"/>
+                                    <rect key="frame" x="174" y="45" width="69" height="69"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="z5o-wN-E1O" secondAttribute="height" multiplier="1:1" id="PhV-rb-GYd"/>
                                     </constraints>
@@ -123,7 +123,6 @@
                                 <constraint firstItem="L7I-OH-88n" firstAttribute="centerY" secondItem="sT7-kY-YWs" secondAttribute="centerY" id="1Rc-lS-VDJ"/>
                                 <constraint firstItem="sT7-kY-YWs" firstAttribute="leading" secondItem="L7I-OH-88n" secondAttribute="trailing" constant="8" id="B0N-sh-qv8"/>
                                 <constraint firstItem="tdw-E4-BZu" firstAttribute="leading" secondItem="Y0C-xe-gU3" secondAttribute="leading" id="Cbd-GK-lFl"/>
-                                <constraint firstItem="sT7-kY-YWs" firstAttribute="width" secondItem="Y0C-xe-gU3" secondAttribute="width" multiplier="0.25" id="Eev-6J-X7d"/>
                                 <constraint firstItem="L7I-OH-88n" firstAttribute="width" secondItem="sT7-kY-YWs" secondAttribute="width" multiplier="0.961538" id="Jp4-xc-aki"/>
                                 <constraint firstItem="z5o-wN-E1O" firstAttribute="width" secondItem="sT7-kY-YWs" secondAttribute="width" multiplier="0.961538" id="Oxv-Z8-gX8"/>
                                 <constraint firstItem="sT7-kY-YWs" firstAttribute="centerX" secondItem="Y0C-xe-gU3" secondAttribute="centerX" id="RcG-0B-vUG"/>
@@ -188,6 +187,9 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="sT7-kY-YWs" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.15" id="P4o-ur-4Cb"/>
+            </constraints>
             <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="129.375" y="122.5"/>

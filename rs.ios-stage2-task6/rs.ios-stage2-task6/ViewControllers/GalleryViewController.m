@@ -12,6 +12,7 @@
 #import "GalleryCollectionViewCell.h"
 #import "DitailedViewController.h"
 #import "UIColor+RSSchool.h"
+#import "PopUpPreviewViewController.h"
 
 @interface GalleryViewController ()< UICollectionViewDelegate, UICollectionViewDataSource, PhotoKitHelperDelegate>
 @property (nonatomic,strong)UICollectionView* collectionView;
@@ -35,7 +36,7 @@
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        _galleryHelper = [[PhotoKitHelper alloc] initWithType:PhotoKitRequestTypeImage];
+        _galleryHelper = [[PhotoKitHelper alloc] initWithType:PhotoKitRequestTypeAll];
         _headerView = [[HeaderView alloc] init];
     }
     return self;
@@ -73,11 +74,23 @@
     __weak typeof(cell) weakCell = cell;
     __weak typeof(item) weakItem = item;
     
-    [self.galleryHelper requestImage:item targetSize:self.cellSize contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
-        if ([weakCell.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
-            [weakCell setImage:result];
-        }
-    }];
+    switch (item.mediaType) {
+        case PHAssetMediaTypeUnknown:
+            [cell setImage:[UIImage imageNamed:@"other"]];
+            break;
+        case PHAssetMediaTypeAudio:
+            [cell setImage:[UIImage imageNamed:@"audio"]];
+            break;
+        case PHAssetMediaTypeVideo:
+        case PHAssetMediaTypeImage:
+            [self.galleryHelper requestImage:item targetSize:self.cellSize contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
+                if ([weakCell.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
+                    [weakCell setImage:result];
+                }
+            }];
+            break;
+    }
+    
     
     return cell;
 }
@@ -92,27 +105,49 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    DitailedViewController* ditailedVC = [[DitailedViewController alloc]init];
-    [ditailedVC setModalPresentationStyle:UIModalPresentationFullScreen];
+    //    DitailedViewController* ditailedVC = [[DitailedViewController alloc]init];
+    //    [ditailedVC setModalPresentationStyle:UIModalPresentationFullScreen];
     PHAsset* item = [self.galleryHelper itemAt:indexPath.item];
-    ditailedVC.representedAssetIdentifier = item.localIdentifier;
-    ditailedVC.creationDate = item.creationDate;
-    ditailedVC.modificationDate = item.modificationDate;
-    ditailedVC.typeOfContent = [self.galleryHelper stringFromMediaType:item.mediaType];
-    ditailedVC.imageName = [self.galleryHelper fileNameForAssets:item];
-    ditailedVC.currentAsset = item;
-    ditailedVC.helper = self.galleryHelper;
+    //    ditailedVC.representedAssetIdentifier = item.localIdentifier;
+    //    ditailedVC.creationDate = item.creationDate;
+    //    ditailedVC.modificationDate = item.modificationDate;
+    //    ditailedVC.typeOfContent = [self.galleryHelper stringFromMediaType:item.mediaType];
+    //    ditailedVC.imageName = [self.galleryHelper fileNameForAssets:item];
+    //    ditailedVC.currentAsset = item;
+    //    ditailedVC.helper = self.galleryHelper;
+    //
+    //    __weak typeof(ditailedVC) weakDitailedVC = ditailedVC;
+    //    __weak typeof(item) weakItem = item;
+    //    __weak typeof(self) weakSelf = self;
+    //    [self.galleryHelper requestImage:item targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
+    //        if ([weakDitailedVC.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
+    //            [weakDitailedVC setOriginalImage:result];
+    //            [weakSelf presentViewController:weakDitailedVC animated:YES completion:nil];
+    //        }
+    //    }];
     
-    __weak typeof(ditailedVC) weakDitailedVC = ditailedVC;
-    __weak typeof(item) weakItem = item;
-    __weak typeof(self) weakSelf = self;
-    [self.galleryHelper requestImage:item targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
-        if ([weakDitailedVC.representedAssetIdentifier isEqualToString:weakItem.localIdentifier]) {
-            [weakDitailedVC setOriginalImage:result];
-            [weakSelf presentViewController:weakDitailedVC animated:YES completion:nil];
-        }
-    }];
-    
+    PopUpPreviewViewController *preview = [[PopUpPreviewViewController alloc]init];
+    preview.modalPresentationStyle = UIModalTransitionStyleCrossDissolve;
+    preview.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    __weak typeof(preview) weakDitailedVC = preview;
+    if(item.mediaType == PHAssetMediaTypeVideo) {
+        [self presentViewController:preview animated:YES completion:nil];
+        [self.galleryHelper requestVideoPlayerForAsset:item resultHandler:^(AVPlayer * _Nullable playerItem) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                AVPlayerLayer* playerLayer = [AVPlayerLayer playerLayerWithPlayer:playerItem];
+                [playerLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
+                playerLayer.frame = weakDitailedVC.contentView.layer.bounds;
+                [weakDitailedVC.contentView.layer addSublayer:playerLayer];
+                [weakDitailedVC setPlayer:playerItem];
+                [playerItem play];
+            });
+        }];
+    } else {
+        [self.galleryHelper requestImage:item targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit sync:YES resultHandler:^(UIImage * _Nullable result) {
+            [weakDitailedVC setImage:result];
+        }];
+        [self presentViewController:preview animated:YES completion:nil];
+    }
 }
 
 - (void) setupLoyaout {
